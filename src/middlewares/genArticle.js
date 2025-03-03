@@ -66,11 +66,11 @@ function genHtml(src, title) {
       <body>
             <div class="themes">
                   <header class="header">
-                        <p class="logo">DAN-blog ${title}</p>
+                        <p class="logo">DAN ${title}</p>
                         <div class="nav">
-                              <a href="http://localhost:5173/">home</a>
-                              <a href="http://localhost:5173/contacts">contacts</a>
-                              <a href="http://localhost:5173/admin">admin</a>
+                              <a href="https://dann-e34f5.web.app/">home</a>
+                              <a href="https://dann-e34f5.web.app/contacts">contacts</a>
+                              <a href="https://dann-e34f5.web.app/admin">admin</a>
                         </div>
                   </header>
                       <div class="main">
