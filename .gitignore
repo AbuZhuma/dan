@@ -1,0 +1,37 @@
+# Node.js modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+
+# Build and dist files
+dist/
+build/
+
+# Temporary files
+*.log
+*.pid
+*.gz
+*.swp
+
+# IDE specific files (например, для VSCode или других редакторов)
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Coverage output (если используете инструменты для тестирования)
+coverage/
+
+# Docker files
+.docker/
+
+# Other
+*.tgz
