@@ -32,7 +32,7 @@ function getSections(input) {
       };
       const sectionsSrc = input.split("\n")
       const result = sectionsSrc.reduce((acc, item) => {
-            if (item === 'section:') {
+            if (item.includes("section:")) {
               acc.push([]);
             } else if (acc.length > 0) {
               if(!splitByFirstColon(item)[1]){
@@ -80,8 +80,8 @@ function genHtml(src, title, desc) {
                                 .map((section) => {
                                   return `<section class="section">${section
                                     .map((el) => {
-                                    if(el[0]){
-                                    let teg = methods[el[0]](el[1]);
+                                    if(el[0] && methods[el[0]]){
+                                          let teg = methods[el[0]](el[1]);
                                       return teg;
                                     }else{
                                     return " "
