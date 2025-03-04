@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/", authenticateJWT, createComment)
 router.get("/", async(req, res) => {
-      let allComments = await Comment.find({})
+      let allComments = await Comment.find()
       res.status(200).json(allComments) 
 })
 

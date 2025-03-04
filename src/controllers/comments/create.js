@@ -13,7 +13,8 @@ const createComment = async (req, res) => {
             let prod = {
                   id: id,
                   text: req.body.text,
-                  date: formattedDate
+                  date: formattedDate,
+                  url: req.body.url ? req.body.url : ""
             }
             let newComment = await Comment(prod)
             newComment.save()

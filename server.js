@@ -57,7 +57,8 @@ app.use('/users/', users)
 app.use('/articles/', articles)
 app.use('/comments/', comments)
 app.use('/topic/', topic)
-app.use('/gallery/', gallery)
+app.use('/gallery/', gallery) 
+
 app.delete('/public/*', async (req, res) => {
   const filePath = req.params[0]; 
   if (!filePath) {

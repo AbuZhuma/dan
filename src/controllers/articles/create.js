@@ -4,7 +4,6 @@ const Article = require("../../models/article");
 const createArticle = async (req, res) => {
       try { 
             let id = await generateRandomID(10)
-            
             let prod = {
                   article_id: id, 
                   title: req.body.title, 

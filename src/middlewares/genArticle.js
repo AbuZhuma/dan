@@ -1,4 +1,5 @@
 const { createFile } = require("../helpers/filesystem")
+const CLIENT = process.env.CLIENT;
 
 const methods = {
       img1: function(value) {
@@ -45,7 +46,7 @@ function getSections(input) {
       return result
 }
 
-function genHtml(src, title) {
+function genHtml(src, title, desc) {
       const sorted = getSections(src);
       const main =`<!DOCTYPE html>
       <html lang="en">
@@ -62,21 +63,22 @@ function genHtml(src, title) {
         frame-src *;
         frame-ancestors *;">
       <title>${title}</title>
+      <meta name="description" content="${desc}">
       </head>
       <body>
             <div class="themes">
                   <header class="header">
                         <p class="logo">DAN ${title}</p>
-                        <div class="nav">
-                              <a href="https://dann-e34f5.web.app/">home</a>
-                              <a href="https://dann-e34f5.web.app/contacts">contacts</a>
-                              <a href="https://dann-e34f5.web.app/admin">admin</a>
-                        </div>
+                        <nav class="nav">
+                              <a href="${CLIENT}/">home</a>
+                              <a href="${CLIENT}/contacts">contacts</a>
+                              <a href="${CLIENT}/admin">admin</a>
+                        </nav>
                   </header>
-                      <div class="main">
+                      <main class="main">
                               ${sorted
                                 .map((section) => {
-                                  return `<div class="section">${section
+                                  return `<section class="section">${section
                                     .map((el) => {
                                     if(el[0]){
                                     let teg = methods[el[0]](el[1]);
@@ -86,10 +88,10 @@ function genHtml(src, title) {
                                     }  
                                     })
                                     .join("")} 
-                                  </div>`;
+                                  </section>`;
                                 })
                                 .join("")} 
-                        </div>
+                        </main>
                   <footer class="footer">
                         <p class="danm">DAN - Dzhumagulov Abdyrakhman Numanovitch</p>
                         <p class="danm">© 2024 All rights reserved</p>
@@ -100,9 +102,9 @@ function genHtml(src, title) {
       return main;
 }
 
-function generate(src, title) {
+function generate(src, title, desc) {
       const URL = process.env.URL;
-      let code = genHtml(src, title)
+      let code = genHtml(src, title, desc)
       let filename = `${title.replace(/\s+/g, "_")}.html`
       createFile(filename, code, "./public/articles")
       return `${URL}/public/articles/${filename}`
@@ -116,7 +118,7 @@ const genArticle = async(req, res, next) => {
                   })   
                   return
             }
-            const resp = await generate(req.body.src, req.body.title)
+            const resp = await generate(req.body.src, req.body.title, req.body.desc)
             req.body.article_url = resp
             next()
       } catch (error) {
