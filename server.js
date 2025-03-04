@@ -10,6 +10,7 @@ const articles = require("./src/routes/articles")
 const comments = require("./src/routes/comments")
 const topic = require("./src/routes/topic")
 const gallery = require("./src/routes/gallery")
+const themes = require("./src/routes/themes")
 
 const rateLimit = require('express-rate-limit');
 const path = require('path');
@@ -58,6 +59,7 @@ app.use('/articles/', articles)
 app.use('/comments/', comments)
 app.use('/topic/', topic)
 app.use('/gallery/', gallery) 
+app.use('/themes/', themes)
 
 app.delete('/public/*', async (req, res) => {
   const filePath = req.params[0]; 
