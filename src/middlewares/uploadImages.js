@@ -1,19 +1,35 @@
 const multer = require('multer');
+const sharp = require('sharp');
 const path = require('path');
 
-const uploadsDir = path.join(__dirname, '..', '..', 'public', 'images');
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, uploadsDir); 
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
+const storage = multer.memoryStorage();
 
 const upload = multer({ storage: storage });
-module.exports = {
-      storage, upload
-}
 
+const convertToWebP = (req, res, next) => {
+  if (!req.file) {
+    return next();
+  }
+
+  const fileName = Date.now() + '.webp'; 
+  const outputPath = path.join(__dirname, '..', '..', 'public', 'images', fileName); 
+
+  sharp(req.file.buffer) 
+    .webp({ quality: 80 })
+    .toFile(outputPath)
+    .then(() => {
+      req.file.path = outputPath;
+      req.file.filename = fileName;
+
+      next();
+    })
+    .catch((err) => {
+      console.error('Ошибка при преобразовании изображения:', err);
+      next(err);
+    });
+};
+
+module.exports = {
+  upload,
+  convertToWebP,
+};

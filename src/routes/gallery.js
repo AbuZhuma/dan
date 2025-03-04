@@ -2,10 +2,10 @@ const express = require('express');
 const authenticateJWT = require('../middlewares/checkToken');
 const Photo = require('../models/photo');
 const createPhoto = require('../controllers/gallery/create');
-const { upload } = require('../middlewares/uploadImages');
+const { upload, convertToWebP } = require('../middlewares/uploadImages');
 const router = express.Router();
 
-router.post("/", authenticateJWT, upload.single("image"), createPhoto)
+router.post("/", authenticateJWT, upload.single("image"),convertToWebP, createPhoto)
 router.get("/", async(req, res) => {
       let allPhotos = await Photo.find({})
       res.status(200).json(allPhotos) 
