@@ -21,10 +21,9 @@ router.get("/:page", async(req, res) => {
       const size = await Article.estimatedDocumentCount();
       let s = req.params.page
       let allArticles = await Article.find()
-      .skip(+s*10-10)
-      .limit(+s*10+10);
+      let snd = allArticles.reverse().slice(+s*10-10, +s*10+10)
       let pg = size === 0 ? 1 : Math.ceil(size / 10)
-      res.status(200).json({data:allArticles, count: pg}) 
+      res.status(200).json({data:snd, count: pg}) 
 })
 
 module.exports = router

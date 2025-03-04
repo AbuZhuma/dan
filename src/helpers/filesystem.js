@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-
+const { promisify } = require('util');
+const unlinkAsync = promisify(fs.unlink);
 const createFile = (fileName, content, dir = './') => {
   const filePath = path.join(dir, fileName);
 
@@ -38,17 +39,23 @@ const appendToFile = (fileName, content, dir = './') => {
   });
 };
 
-const deleteFile = (fileName, dir = './') => {
-  const filePath = path.join(dir, fileName);
-
-  fs.unlink(filePath, (err) => {
-    if (err) {
-      console.error(`Ошибка при удалении файла: ${err.message}`);
+async function deleteFile(filePath) {
+  const fullPath = path.join(__dirname,'..', '..', 'public', filePath);
+  try {
+    await unlinkAsync(fullPath); 
+    console.log(`Файл успешно удалён: ${filePath}`);
+    return { success: true, message: `Файл успешно удалён: ${filePath}` };
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      console.error(`Файл не найден: ${filePath}`);
+      return { success: false, message: `Файл не найден: ${filePath}` };
     } else {
-      console.log(`Файл ${fileName} успешно удален.`);
+      console.error(`Ошибка при удалении файла: ${err.message}`);
+      return { success: false, message: `Ошибка при удалении файла: ${err.message}` };
     }
-  });
-};
+  }
+}
+
 
 const fileExists = (fileName, dir = './') => {
   const filePath = path.join(dir, fileName);

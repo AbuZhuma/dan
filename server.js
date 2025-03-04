@@ -13,6 +13,9 @@ const gallery = require("./src/routes/gallery")
 
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const { deleteFile } = require('./src/helpers/filesystem');
+const Photo = require('./src/models/photo');
+const Article = require('./src/models/article');
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 1000,
@@ -43,6 +46,7 @@ app.use('/public', express.static(public));
 
 const PORT = process.env.PORT || 5000;
 const dbURI = process.env.MONGO_URI;
+const URL = process.env.URL;
 
 mongoose
   .connect(dbURI)
@@ -54,6 +58,26 @@ app.use('/articles/', articles)
 app.use('/comments/', comments)
 app.use('/topic/', topic)
 app.use('/gallery/', gallery)
+app.delete('/public/*', async (req, res) => {
+  const filePath = req.params[0]; 
+  if (!filePath) {
+    return res.status(400).json({ success: false, message: 'Путь к файлу не указан' });
+  }
+  const result = await deleteFile(filePath);
+  
+  if (result.success) {
+    if(req.params[0].split("/")[0].includes("images")){
+      const del = await Photo.findOneAndDelete({url: `${URL}/public/${req.params[0]}`})
+    }else if(req.params[0].split("/")[0].includes("articles")){
+      const del = await Article.findOneAndDelete({article_url: `${URL}/public/${req.params[0]}`})
+    }
+    result.message = "File deleted!"
+    res.status(200).json(result);
+  } else {
+    res.status(404).json(result);
+  } 
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -116,8 +116,8 @@ const genArticle = async(req, res, next) => {
                   })   
                   return
             }
-            const res = await generate(req.body.src, req.body.title)
-            req.body.article_url = res
+            const resp = await generate(req.body.src, req.body.title)
+            req.body.article_url = resp
             next()
       } catch (error) {
             console.log(error);
