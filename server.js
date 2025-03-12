@@ -43,6 +43,19 @@ app.use(
   })
 );
 app.use(express.json());
+const fs = require('fs');
+const path = require('path');
+
+const publicDir = path.join(__dirname, 'public');
+const imagesDir = path.join(publicDir, 'images');
+
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir);
+}
+if (!fs.existsSync(imagesDir)) {
+  fs.mkdirSync(imagesDir);
+}
+
 app.use('/public', express.static(public));
 
 const PORT = process.env.PORT || 5000;
