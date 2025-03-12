@@ -44,7 +44,6 @@ app.use(
 );
 app.use(express.json());
 const fs = require('fs');
-const path = require('path');
 
 const publicDir = path.join(__dirname, 'public');
 const imagesDir = path.join(publicDir, 'images');
