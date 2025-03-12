@@ -47,12 +47,16 @@ const fs = require('fs');
 
 const publicDir = path.join(__dirname, 'public');
 const imagesDir = path.join(publicDir, 'images');
+const articlesDir = path.join(publicDir, 'articles');
 
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir);
 }
 if (!fs.existsSync(imagesDir)) {
   fs.mkdirSync(imagesDir);
+}
+if (!fs.existsSync(articlesDir)) {
+  fs.mkdirSync(articlesDir);
 }
 
 app.use('/public', express.static(public));
