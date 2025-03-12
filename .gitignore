@@ -14,7 +14,7 @@ Thumbs.db
 # Build and dist files
 dist/
 build/
-/public
+public/
 # Temporary files
 *.log
 *.pid
