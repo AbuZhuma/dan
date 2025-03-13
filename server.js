@@ -55,7 +55,6 @@ if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(imagesDir);
   fs.mkdirSync(articlesDir);
   fs.mkdirSync(stylesDir);
-
 }
 const articleCssPath = path.join(stylesDir, 'article.css');
 if (!fs.existsSync(articleCssPath)) {
