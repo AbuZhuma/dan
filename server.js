@@ -48,689 +48,690 @@ const fs = require('fs');
 const publicDir = path.join(__dirname, 'public');
 const imagesDir = path.join(publicDir, 'images');
 const articlesDir = path.join(publicDir, 'articles');
-
+const stylesDir = path.join(publicDir, 'styles');
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir);
   fs.mkdirSync(imagesDir);
   fs.mkdirSync(articlesDir);
+  fs.mkdirSync(stylesDir);
 }
-// const articleCssPath = path.join(stylesDir, 'article.css');
-// if (!fs.existsSync(articleCssPath)) {
-//   const defaultCssContent = `@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+const articleCssPath = path.join(stylesDir, 'article.css');
+if (!fs.existsSync(articleCssPath)) {
+  const defaultCssContent = `@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-// *{
+*{
 
-//       font-family: "Roboto", serif;
+      font-family: "Roboto", serif;
 
-//   font-optical-sizing: auto;
+  font-optical-sizing: auto;
 
-// }
+}
 
-// p{
+p{
 
-//       margin: 0;
+      margin: 0;
 
-// }
+}
 
-// .body{
+.body{
 
 
-//       background: #c7d9ddec;
+      background: #c7d9ddec;
 
-// }
+}
 
-// .themes{
+.themes{
 
-//       height: 100%;  
+      height: 100%;  
 
-//       display: flex;
+      display: flex;
 
-//       flex-direction: column;
+      flex-direction: column;
 
-//       align-items: center; 
+      align-items: center; 
 
-//       gap: 15px;
+      gap: 15px;
 
 
 
-// }
+}
 
 
 
-// .main{      
+.main{      
 
-//       width: 1400px;
+      width: 1400px;
 
-//       display: flex;
+      display: flex;
 
-//       flex-direction: column;
+      flex-direction: column;
 
-//       align-items: center;
+      align-items: center;
 
-//       gap: 15px;
+      gap: 15px;
 
-// }
+}
 
-// .header{
+.header{
 
-//       display: flex;
+      display: flex;
 
-//       align-items: center;
+      align-items: center;
 
-//       justify-content: space-between;
+      justify-content: space-between;
 
-//       width: 100%;
+      width: 100%;
 
-//       max-width: 1400px;
+      max-width: 1400px;
 
-//       height: 80px;
+      height: 80px;
 
-//       padding: 0px 20px;
+      padding: 0px 20px;
 
-//       background: white;
+      background: white;
 
-//       border: 1px solid rgba(128, 128, 128, 0.5);
+      border: 1px solid rgba(128, 128, 128, 0.5);
 
-//       box-shadow: 0 0 20px 0 rgba(128, 128, 128, 0.267);
+      box-shadow: 0 0 20px 0 rgba(128, 128, 128, 0.267);
 
-//       border-radius: 5px;
+      border-radius: 5px;
 
-//       margin-top: 10px;
+      margin-top: 10px;
 
-// }
+}
 
-// .logo{
+.logo{
 
-//       font-size: 30px;
+      font-size: 30px;
 
-//       font-weight: 600;
+      font-weight: 600;
 
-// }
+}
 
-// .nav{
+.nav{
 
-//       display: flex;
+      display: flex;
 
-//       gap: 20px;
+      gap: 20px;
 
-// }
+}
 
-// .nav a{
+.nav a{
 
-//       text-decoration: none;
+      text-decoration: none;
 
-//       color: rgba(16, 16, 122, 0.705);
+      color: rgba(16, 16, 122, 0.705);
 
-//       font-size: 20px;
+      font-size: 20px;
 
-//       cursor: pointer;
+      cursor: pointer;
 
-//       font-weight: 500;
+      font-weight: 500;
 
-// }
+}
 
 
 
 
 
-// .footer{
+.footer{
 
-//       display: flex;
+      display: flex;
 
-//       align-items: center;
+      align-items: center;
 
-//       justify-content: space-between;
+      justify-content: space-between;
 
-//       width: 100%;
+      width: 100%;
 
-//       max-width: 1400px;
+      max-width: 1400px;
 
-//       height: 70px;
+      height: 70px;
 
-//       padding: 0px 20px;
+      padding: 0px 20px;
 
-//       background: white;
+      background: white;
 
-//       border: 1px solid rgba(128, 128, 128, 0.5);
+      border: 1px solid rgba(128, 128, 128, 0.5);
 
-//       box-shadow: 0 0 20px 0 rgba(128, 128, 128, 0.267);
+      box-shadow: 0 0 20px 0 rgba(128, 128, 128, 0.267);
 
-//       border-radius: 5px;
+      border-radius: 5px;
 
-//       margin-bottom: 10px;
+      margin-bottom: 10px;
 
-// }
+}
 
 
 
-// .danm{
+.danm{
 
-//       font-size:18px;
+      font-size:18px;
 
-// }
+}
 
 
 
-// .section{
+.section{
 
-//       display: flex;
+      display: flex;
 
-//       flex-direction: column;
+      flex-direction: column;
 
-//       align-items: start;
+      align-items: start;
 
-//       width: 100%;
+      width: 100%;
 
-//       padding: 20px;
+      padding: 20px;
 
-//       background: white;
+      background: white;
 
-//       border: 1px solid rgba(128, 128, 128, 0.5);
+      border: 1px solid rgba(128, 128, 128, 0.5);
 
-//       box-shadow: 0 0 20px 0 rgba(128, 128, 128, 0.267);
+      box-shadow: 0 0 20px 0 rgba(128, 128, 128, 0.267);
 
-//       border-radius: 5px;
+      border-radius: 5px;
 
-//       gap: 20px;
+      gap: 20px;
 
-//       overflow: hidden;
+      overflow: hidden;
 
-// }
+}
 
-// .title1{
+.title1{
 
-//       margin-bottom: 10px;
+      margin-bottom: 10px;
 
-//       font-size: 30px;
+      font-size: 30px;
 
-//       font-weight: 600;
+      font-weight: 600;
 
-//       text-transform:uppercase;
+      text-transform:uppercase;
 
-// }
+}
 
-// .title2{
+.title2{
 
-//       margin-bottom: 10px;
+      margin-bottom: 10px;
 
-//       font-size: 24px;
+      font-size: 24px;
 
-//       font-weight: 600;
+      font-weight: 600;
 
-//       text-transform:uppercase;
+      text-transform:uppercase;
 
-// }
+}
 
-// .text{
+.text{
 
-//       font-size: 20px;
+      font-size: 20px;
 
-//       color: #383838;
+      color: #383838;
 
-// }
+}
 
-// .imgc{
+.imgc{
 
-//       width: 100%;
+      width: 100%;
 
-//       display: flex;
+      display: flex;
 
-//       justify-content: center;
+      justify-content: center;
 
-//       gap: 10px;
+      gap: 10px;
 
-// }
+}
 
-// .img{
+.img{
 
-//       transition: all 0.3s ease;
+      transition: all 0.3s ease;
 
-//       object-fit: cover;
+      object-fit: cover;
 
-//       outline: none;
+      outline: none;
 
-// }
+}
 
-// .img1{
+.img1{
 
-//       width: 100%;
+      width: 100%;
 
-//       max-height: 600px;
+      max-height: 600px;
 
-// }
+}
 
-// .img2{
+.img2{
 
-//       max-width: 50%;
+      max-width: 50%;
 
-//       max-height: 500px;
+      max-height: 500px;
 
-// }
+}
 
-// .img:hover{
+.img:hover{
 
-//       cursor: pointer;
+      cursor: pointer;
 
-//       outline: 1px solid black;
+      outline: 1px solid black;
 
-//       transition: all 0.3s ease;
+      transition: all 0.3s ease;
 
-// }
+}
 
-// @media (max-width: 1400px) {
+@media (max-width: 1400px) {
 
-//       .main {
+      .main {
 
-//           width: 100%;
+          width: 100%;
 
-//           padding: 0 0px;
+          padding: 0 0px;
 
-//       }
+      }
 
-//   }
+  }
 
 
 
-//   @media (max-width: 1200px) {
+  @media (max-width: 1200px) {
 
-//       .header, .footer {
+      .header, .footer {
 
-//           padding: 0 15px;
+          padding: 0 15px;
 
-//       }
+      }
 
 
 
-//       .logo {
+      .logo {
 
-//           font-size: 26px;
+          font-size: 26px;
 
-//       }
+      }
 
 
 
-//       .nav a {
+      .nav a {
 
-//           font-size: 18px;
+          font-size: 18px;
 
-//       }
+      }
 
 
 
-//       .title1 {
+      .title1 {
 
-//           font-size: 26px;
+          font-size: 26px;
 
-//       }
+      }
 
 
 
-//       .title2 {
+      .title2 {
 
-//           font-size: 22px;
+          font-size: 22px;
 
-//       }
+      }
 
 
 
-//       .text {
+      .text {
 
-//           font-size: 18px;
+          font-size: 18px;
 
-//       }
+      }
 
 
 
-//       .img1 {
+      .img1 {
 
-//           max-height: 500px;
+          max-height: 500px;
 
-//       }
+      }
 
 
 
-//       .img2 {
+      .img2 {
 
-//           max-height: 400px;
+          max-height: 400px;
 
-//       }
+      }
 
-//   }
+  }
 
 
 
-//   @media (max-width: 992px) {
+  @media (max-width: 992px) {
 
-//       .header, .footer {
+      .header, .footer {
 
-//           height: 70px;
+          height: 70px;
 
-//       }
+      }
 
 
 
-//       .logo {
+      .logo {
 
-//           font-size: 24px;
+          font-size: 24px;
 
-//       }
+      }
 
 
 
-//       .nav a {
+      .nav a {
 
-//           font-size: 16px;
+          font-size: 16px;
 
-//       }
+      }
 
 
 
-//       .title1 {
+      .title1 {
 
-//           font-size: 24px;
+          font-size: 24px;
 
-//       }
+      }
 
 
 
-//       .title2 {
+      .title2 {
 
-//           font-size: 20px;
+          font-size: 20px;
 
-//       }
+      }
 
 
 
-//       .text {
+      .text {
 
-//           font-size: 16px;
+          font-size: 16px;
 
-//       }
+      }
 
 
 
-//       .img1 {
+      .img1 {
 
-//           max-height: 400px;
+          max-height: 400px;
 
-//       }
+      }
 
 
 
-//       .img2 {
+      .img2 {
 
-//           max-height: 300px;
+          max-height: 300px;
 
-//       }
+      }
 
-//   }
+  }
 
 
 
-//   @media (max-width: 768px) {
+  @media (max-width: 768px) {
 
-//       .header, .footer {
+      .header, .footer {
 
-//           height: 60px;
+          height: 60px;
 
-//           padding: 0 10px;
+          padding: 0 10px;
 
-//       }
+      }
 
 
 
-//       .logo {
+      .logo {
 
-//           font-size: 22px;
+          font-size: 22px;
 
-//       }
+      }
 
 
 
-//       .nav a {
+      .nav a {
 
-//           font-size: 14px;
+          font-size: 14px;
 
-//       }
+      }
 
 
 
-//       .title1 {
+      .title1 {
 
-//           font-size: 22px;
+          font-size: 22px;
 
-//       }
+      }
 
 
 
-//       .title2 {
+      .title2 {
 
-//           font-size: 18px;
+          font-size: 18px;
 
-//       }
+      }
 
 
 
-//       .text {
+      .text {
 
-//           font-size: 14px;
+          font-size: 14px;
 
-//       }
+      }
 
 
 
-//       .img1 {
+      .img1 {
 
-//           max-height: 300px;
+          max-height: 300px;
 
-//       }
+      }
 
 
 
-//       .img2 {
+      .img2 {
 
-//           max-height: 200px;
+          max-height: 200px;
 
-//       }
+      }
 
 
 
-//       .section {
+      .section {
 
-//           padding: 15px;
+          padding: 15px;
 
-//       }
+      }
 
 
 
-//       .imgc {
+      .imgc {
 
-//           flex-direction: column;
+          flex-direction: column;
 
-//           align-items: center;
+          align-items: center;
 
-//       }
+      }
 
 
 
-//       .img2 {
+      .img2 {
 
-//           max-width: 100%;
+          max-width: 100%;
 
-//       }
+      }
 
-//   }
+  }
 
 
 
-//   @media (max-width: 576px) {
+  @media (max-width: 576px) {
 
-//       .header, .footer {
+      .header, .footer {
 
-//           height: 50px;
+          height: 50px;
 
-//           padding: 0 5px;
+          padding: 0 5px;
 
-//       }
+      }
 
-//       .footer{
+      .footer{
 
-//             display: flex;
+            display: flex;
 
-//             flex-direction: column;
+            flex-direction: column;
 
-//             align-items: center;
+            align-items: center;
 
-//             justify-content: center;
+            justify-content: center;
 
-//       }
+      }
 
-//       .logo {
+      .logo {
 
-//           font-size: 14px;
+          font-size: 14px;
 
-//       }
+      }
 
 
 
-//       .nav a {
+      .nav a {
 
-//           font-size: 12px;
+          font-size: 12px;
 
-//       }
+      }
 
 
 
-//       .title1 {
+      .title1 {
 
-//           font-size: 20px;
+          font-size: 20px;
 
-//       }
+      }
 
 
 
-//       .title2 {
+      .title2 {
 
-//           font-size: 16px;
+          font-size: 16px;
 
-//       }
+      }
 
 
 
-//       .text {
+      .text {
 
-//           font-size: 12px;
+          font-size: 12px;
 
-//       }
+      }
 
 
 
-//       .img1 {
+      .img1 {
 
-//           max-height: 200px;
+          max-height: 200px;
 
-//       }
+      }
 
 
 
-//       .img2 {
+      .img2 {
 
-//           max-height: 150px;
+          max-height: 150px;
 
-//       }
+      }
 
 
 
-//       .section {
+      .section {
 
-//           padding: 10px;
+          padding: 10px;
 
-//       }
+      }
 
 
 
-//       .danm {
+      .danm {
 
-//           font-size: 14px;
+          font-size: 14px;
 
-//       }
+      }
 
-//   }
+  }
 
 
 
-//   @media (max-width: 400px) {
+  @media (max-width: 400px) {
 
-//       .header, .footer {
+      .header, .footer {
 
-//           height: 40px;
+          height: 40px;
 
-//       }
+      }
 
 
 
 
 
-//       .nav a {
+      .nav a {
 
-//           font-size: 10px;
+          font-size: 10px;
 
-//       }
+      }
 
 
 
-//       .title1 {
+      .title1 {
 
-//           font-size: 18px;
+          font-size: 18px;
 
-//       }
+      }
 
 
 
-//       .title2 {
+      .title2 {
 
-//           font-size: 14px;
+          font-size: 14px;
 
-//       }
+      }
 
 
 
-//       .text {
+      .text {
 
-//           font-size: 10px;
+          font-size: 10px;
 
-//       }
+      }
 
 
 
-//       .img1 {
+      .img1 {
 
-//           max-height: 150px;
+          max-height: 150px;
 
-//       }
+      }
 
 
 
-//       .img2 {
+      .img2 {
 
-//           max-height: 100px;
+          max-height: 100px;
 
-//       }
+      }
 
 
 
-//       .danm {
+      .danm {
 
-//           font-size: 12px;
+          font-size: 12px;
 
-//       }
+      }
 
-//   }`;
-//   fs.writeFileSync(articleCssPath, defaultCssContent);
-//   console.log('File created:', articleCssPath);
-// } else {
-//   console.log('File already exists:', articleCssPath);
-// }
+  }`;
+  fs.writeFileSync(articleCssPath, defaultCssContent);
+  console.log('File created:', articleCssPath);
+} else {
+  console.log('File already exists:', articleCssPath);
+}
 
 app.use('/public', express.static(public));
 
