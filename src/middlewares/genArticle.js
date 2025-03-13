@@ -62,13 +62,13 @@ function genHtml(src, title, desc) {
         object-src *;
         frame-src *;
         frame-ancestors *;">
-      <title>${title}</title>
+      <title>${title} - DAN</title>
       <meta name="description" content="${desc}">
       </head>
       <body>
             <div class="themes">
                   <header class="header">
-                        <p class="logo">DAN ${title}</p>
+                        <p class="logo">${title}</p>
                         <nav class="nav">
                               <a href="${CLIENT}/">home</a>
                               <a href="${CLIENT}/contacts">contacts</a>
