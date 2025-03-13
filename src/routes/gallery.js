@@ -12,7 +12,7 @@ router.get("/", async(req, res) => {
 })
 router.get("/:page", async(req, res) => {
       const size = await Photo.estimatedDocumentCount();
-      let s = req.params.pag
+      let s = req.params.page
       let allPhotos = await Photo.find()
       .skip(+s*10-10)
       .limit(+s*10+10);
