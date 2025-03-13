@@ -53,6 +53,8 @@ if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir);
   fs.mkdirSync(imagesDir);
   fs.mkdirSync(articlesDir);
+}
+if (!fs.existsSync(stylesDir)) {
   fs.mkdirSync(stylesDir);
 }
 const articleCssPath = path.join(stylesDir, 'article.css');
