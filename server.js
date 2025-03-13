@@ -43,19 +43,17 @@ app.use(
   })
 );
 app.use(express.json());
-// const fs = require('fs');
+const fs = require('fs');
 
-// const publicDir = path.join(__dirname, 'public');
-// const imagesDir = path.join(publicDir, 'images');
-// const articlesDir = path.join(publicDir, 'articles');
-// const stylesDir = path.join(publicDir, 'styles');
+const publicDir = path.join(__dirname, 'public');
+const imagesDir = path.join(publicDir, 'images');
+const articlesDir = path.join(publicDir, 'articles');
 
-// if (!fs.existsSync(publicDir)) {
-//   fs.mkdirSync(publicDir);
-//   fs.mkdirSync(imagesDir);
-//   fs.mkdirSync(articlesDir);
-//   fs.mkdirSync(stylesDir);
-// }
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir);
+  fs.mkdirSync(imagesDir);
+  fs.mkdirSync(articlesDir);
+}
 // const articleCssPath = path.join(stylesDir, 'article.css');
 // if (!fs.existsSync(articleCssPath)) {
 //   const defaultCssContent = `@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
