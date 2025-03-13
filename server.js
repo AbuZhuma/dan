@@ -51,7 +51,11 @@ const articlesDir = path.join(publicDir, 'articles');
 const stylesDir = path.join(publicDir, 'styles');
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir);
+}
+if (!fs.existsSync(imagesDir)) {
   fs.mkdirSync(imagesDir);
+}
+if (!fs.existsSync(articlesDir)) {
   fs.mkdirSync(articlesDir);
 }
 if (!fs.existsSync(stylesDir)) {
