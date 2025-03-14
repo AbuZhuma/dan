@@ -62,6 +62,7 @@ function genHtml(src, title, desc) {
         object-src *;
         frame-src *;
         frame-ancestors *;">
+        <link rel="icon" href="https://dan-production.up.railway.app/public/images/1741930908061.webp" type="image/x-icon">
       <title>${title} - DAN</title>
       <meta name="description" content="${desc}">
       </head>
