@@ -14,9 +14,8 @@ router.get("/:page", async(req, res) => {
       const size = await Photo.estimatedDocumentCount();
       let s = req.params.page
       let allPhotos = await Photo.find()
-      .skip(+s*10-10)
-      .limit(+s*10+10);
+      let resing = allPhotos.reverse()
       let pg = size === 0 ? 1 : Math.ceil(size / 10)
-      res.status(200).json({data:allPhotos, count: pg}) 
+      res.status(200).json({data:resing.slice(+s*10-10, +s*10+10), count: pg}) 
 })
 module.exports = router

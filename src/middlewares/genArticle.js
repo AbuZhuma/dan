@@ -73,7 +73,6 @@ function genHtml(src, title, desc) {
                         <nav class="nav">
                               <a href="${CLIENT}/">home</a>
                               <a href="${CLIENT}/contacts">contacts</a>
-                              <a href="${CLIENT}/admin">admin</a>
                         </nav>
                   </header>
                       <main class="main">
@@ -92,6 +91,10 @@ function genHtml(src, title, desc) {
                                   </section>`;
                                 })
                                 .join("")} 
+                                <section class="section">
+                                    <p class="title2">Comments</p>
+                                    <input class="coment_input"/>
+                                </section>
                         </main>
                   <footer class="footer">
                         <p class="danm">DAN - Dzhumagulov Abdyrakhman Numanovitch</p>

@@ -10,7 +10,7 @@ const genArticle = require('../middlewares/genArticle');
 const router = express.Router();
 
 router.post("/", authenticateJWT, genArticle, createArticle)
-router.patch("/:id", authenticateJWT, editArticle)
+router.put("/:id", authenticateJWT, genArticle, editArticle)
 router.get("/id/:id", getArticleForId)
 router.get("/q/:srch", searchArticle)
 router.get("/", async(req, res) => {

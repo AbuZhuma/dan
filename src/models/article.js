@@ -5,7 +5,7 @@ const producSchema = new mongoose.Schema({
    desc: { type: String, required: true},  
    image: { type: String, required: true },   
    src: { type: String, required: true },
-   article_url: { type: String, required: true }
+   article_url: { type: String, required: true }   
 })
 
 const Article = mongoose.model('article', producSchema, "articles");      
