@@ -2,23 +2,23 @@ const { createFile } = require("../helpers/filesystem")
 const CLIENT = process.env.CLIENT;
 
 const methods = {
-      img1: function(value) {
+      i1: function(value) {
             return `<a class="imgc" href="${value}">
                               <img src="${value}" class="img img1">
                         </a>`
       },
-      img2: function(value){
+      i2: function(value){
             return `<a class="imgc" href="${value}">
                               <img src="${value}" class="img img2">
                         </a>`
       },
-      title1: function(value){
+      t1: function(value){
             return `<p class="title1">${value}</p>`
       },
-      title2: function(value){
+      t2: function(value){
             return `<p class="title2">${value}</p>`
       },
-      text: function(value){
+      t: function(value){
             return ` <p class="text">${value}</p>`
       },
 }
